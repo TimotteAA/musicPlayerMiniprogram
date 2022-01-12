@@ -1,0 +1,22 @@
+/* components/song-menu-area/index.wxss */
+.song-list {
+    white-space: nowrap;
+    width: 100vw;
+    position: relative; 
+    /* position是爲了覆蓋page */
+    left: -20rpx;
+}
+
+.list-item {
+    width: 200rpx;
+    height: 240rpx;
+    /* background-color: red; */
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20rpx;
+}
+
+.list-item:last-child {
+    margin-right: 20rpx;
+    /* 右側留空白 */
+}

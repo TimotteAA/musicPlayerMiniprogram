@@ -1,0 +1,17 @@
+<!--components/song-list-item/index.wxml-->
+<view class="song-list-item" bindtap="handleItemNavigate" data-id="{{item.id}}">
+    <view class="item-left-image">
+        <image src="{{item.al.picUrl}}" mode="widthFix"
+            class="cover-image"
+        ></image>
+    </view>
+    <view class="item-mid">
+        <view class="name">{{item.al.name}}</view>
+        <view class="info">{{item.name}} · {{item.ar[0].name}}</view>
+    </view>
+    <view class="item-right">
+        <image src="/assets/images/icons/arrow-right.png"
+            class="icon"
+        ></image>
+    </view>
+</view>

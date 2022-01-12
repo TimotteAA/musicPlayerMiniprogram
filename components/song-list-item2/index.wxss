@@ -1,0 +1,49 @@
+/* components/song-list-item2/index.wxss */
+
+.song-list-item-v2 {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.song-list-item-v2:last-child {
+    margin-bottom: 40rpx;
+}
+
+.song-list-item-v2 .index {
+    /* border: 1px dotted blue; */
+    margin-left: -6rpx;
+    margin-right: 10rpx;
+    flex: 1;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.song-list-item-v2 .song-info {
+    /* border: 1px solid red; */
+    flex: 11;
+}
+
+.song-info .name {
+    font-weight: 600;
+    font-size: 26rpx;
+}
+
+.song-info .desc {
+    font-size: 23rpx;
+}
+
+.source {
+    display:flex;
+    align-items: center;
+}
+
+.source .icon {
+    width: 30rpx;
+    margin-right: 6rpx;
+}
+
+.source > .desc:not(:last-child) {
+    margin-right: 6rpx;
+}

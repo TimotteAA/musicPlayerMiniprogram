@@ -1,0 +1,68 @@
+<!--pages/detail-search/index.wxml-->
+<!-- 搜索框 -->
+<van-search background="#fafafa" 
+    shape="round"
+    placeholder="搜索您喜欢的歌曲"
+    bind:change="handleChange"
+    bind:search="handleSearch"
+    value="{{searchValue}}"
+    show-action="{{searchValue ? true : false}}"
+    class="search"
+/>
+
+<!-- 2. 热门搜索推薦 -->
+<view wx:if="{{!searchValue && !searchSuggest.length}}"  class='hot'>
+    <header title="热门搜索" showRight="{{false}}"></header>
+    <view class='tags'>
+        <block  wx:for="{{hotKeywords}}" wx:key="first">
+        <view class="tag"
+            bind:tap="handleHotItemClick"
+            data-item="{{item.first}}"
+        >{{item.first}}</view>
+        </block>
+    </view>
+</view>
+
+
+<!-- 搜索建议 -->
+<view class="suggest"  
+wx:elif="{{searchSuggest.length  && resultSongs.length === 0}}"> 
+    <view class="list">
+        <block wx:for="{{searchSuggest}}" wx:key="keyword">
+            <view class="suggest-item"                     
+            bindtap="handleItemClick" data-keyword="{{searchSuggest[index].keyword}}">
+                <image class="icon" mode="widthFix" 
+                src="/assets/images/icons/search_icon.png">
+                </image>
+                <!-- <text class="keyword">{{item.keyword}}</text> -->
+                <!-- 文本劃分成字符串 -->
+                <rich-text nodes="{{suggestNodes[index]}}"></rich-text>
+            </view>
+        </block>
+    </view>
+</view>
+
+<!-- 搜索項 -->
+<view wx:elif="{{resultSongs.length}}" class="search-result">
+    <view class="best-match">最佳匹配</view>
+    <view class="list">
+        <block wx:for="{{resultSongs}}">
+            <song-list-item-v2 item="{{item}}" index="{{index+1}}">
+            </song-list-item-v2>
+        </block>
+    </view>
+</view>
+
+<!-- 历史搜索 -->
+<view class="history" wx:if="{{!searchValue && !searchSuggest.length && historySearch.length}}">
+    <header title="搜索记录" showRight="{{false}}"></header>
+    <view  class="history-list">
+        <block wx:for="{{historySearch}}" wx:key="*this">
+            <view class="history-item"
+            bindtap="handleItemClick" data-keyword="{{item}}" 
+            >
+                {{item}}
+            </view>
+        </block>
+    </view>
+</view>

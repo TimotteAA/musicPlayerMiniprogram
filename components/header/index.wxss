@@ -1,0 +1,31 @@
+/* components/header/index.wxss */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20rpx;
+}
+
+.header .title {
+    font-weight: bold;
+}
+
+/* 利用CSS互斥 */
+.header .slot:empty + .default {
+   display: flex;
+}
+
+.right .default {
+    display: none;
+    align-items: center;
+}
+
+.default .icon {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.default .right-text {
+    color: #666;
+    font-size: 24rpx;
+}

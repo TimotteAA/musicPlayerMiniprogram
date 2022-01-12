@@ -1,0 +1,35 @@
+{
+    "pages": [
+        "pages/home-music/index",
+        "pages/home-video/index",
+        "pages/mv-detail/index",
+        "pages/detail-search/index",
+        "pages/video-detail/index",
+        "pages/detail-songs/index",
+        "pages/player/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fafafa",
+        "navigationBarTitleText": "TimotteMusic",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/home-music/index",
+                "text": "音乐",
+                "iconPath": "./assets/images/tabbar/music_normal.png",
+                "selectedIconPath": "./assets/images/tabbar/music_active.png"
+            },
+            {
+                "pagePath": "pages/home-video/index",
+                "text": "mv",
+                "iconPath": "./assets/images/tabbar/video_normal.png",
+                "selectedIconPath": "./assets/images/tabbar/video_active.png"
+            }
+        ]
+    }
+}

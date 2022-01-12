@@ -1,0 +1,63 @@
+<!--pages/detail-songs/index.wxml-->
+
+<wxs src="/utils/format.wxs" module="format"></wxs>
+
+<block wx:if="{{!rankingName}}">
+    <view class="info"  style="height: {{imageHeight}}px;">
+        <!-- 背景图片 -->
+        <image class="bg-image" mode="aspectFill"
+            src="{{songsInfo.coverImgUrl}}"
+        ></image>
+        <view class="bg-cover"></view>
+        <!-- 内容 -->
+        <view class="content">
+            <view class="top">
+                <image class="cover"
+                    src="{{songsInfo.coverImgUrl}}"
+                    mode="widthFix"
+                    bind:load="handleImageLoad"
+                ></image>
+                <view class="more">
+                    <view class="title">{{songsInfo.name}}</view>
+                    <view class="author">
+                        <image class="avatar"
+                            src="{{songsInfo.creator.avatarUrl}}"
+                            mode="widthFix"
+                        ></image>
+                        <view class="name">{{songsInfo.creator.nickname}}</view>
+                    </view>
+                    <view class="desc">{{songsInfo.description}}</view>
+                </view>
+            </view>
+            <view class="operator">
+                <view class="favor">
+                    <image class="icon" 
+                    src="/assets/images/icons/favor_icon.png"
+                    lazy-load
+                    mode="widthFix"
+                    ></image>
+                    <text class="icon-name">{{format.formatCount(songsInfo.trackCount)}}</text>
+                </view>
+                <view class="share">
+                    <image class="icon"
+                    src="/assets/images/icons/share_icon.png"
+                    lazy-load
+                    mode="widthFix"
+                    ></image>
+                    <text class="icon-name">分享</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+<block wx:else>
+    <header title="{{rankingInfo.name}}" showRight="{{false}}"></header>
+</block>
+
+
+
+<view class="song-list">
+    <block wx:for="{{tracks}}" wx:key="id">
+        <song-list-item-v2 item="{{item}}" index="{{index + 1}}"></song-list-item-v2>
+    </block>
+</view>

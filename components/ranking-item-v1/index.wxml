@@ -1,0 +1,21 @@
+<!--components/ranking-item-v1/index.wxml-->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+
+<view class="ranking-item-v1" style="height: 214rpx;">
+    <view class="item-left">
+        <view class="header">{{item.name}}</view>
+        <view class="songs">
+            <view class="song-item">1. {{item.tracks[0].name}}+<text class="ar">{{item.tracks[0].ar[0].name}}</text></view>
+            <view class="song-item">2. {{item.tracks[1].name}} + <text class="ar">{{item.tracks[1].ar[0].name}}</text></view>
+            <view class="song-item">3. {{item.tracks[2].name}} + <text class="ar">{{item.tracks[2].ar[0].name}}</text></view>
+        </view>
+    </view>
+    <view class="ranking-item-right" style="position: relative">
+        <image src="{{item.coverImgUrl}}" mode="widthFix" 
+            class="ranking-item-img"
+        ></image>
+        <view class="play-count" mode="widthFix">播放数量：{{format.formatCount(item.playCount)}}
+        </view>
+    </view>
+</view>
+<!-- bind:load="handleImageLoaded" -->

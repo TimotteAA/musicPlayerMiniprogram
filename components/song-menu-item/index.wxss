@@ -1,0 +1,28 @@
+/* components/song-menu-item/index.wxss */
+.song-list-item {
+    width: 100%;
+}
+
+.item-top {
+    width: 100%;
+    position: relative;
+}
+
+.item-top .cover-image {
+    width: 100%;
+}
+
+.item-top .play-count {
+    position: absolute;
+    right: 0;
+    bottom: 10rpx;
+    color: white;
+    font-size: 20rpx;
+}
+
+.item-bottom {
+    font-size: 24rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

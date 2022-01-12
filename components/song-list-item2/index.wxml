@@ -1,0 +1,18 @@
+<!--components/song-list-item2/index.wxml-->
+<view class="song-list-item-v2" bind:tap="handleItemNavigate" data-id="{{item.id}}">
+    <view class="index">{{index}}</view>
+    <view class="song-info">
+        <view class="name">{{item.name}}</view>
+        <view class="source">
+            <image class="icon" class="icon" mode="widthFix"
+            src="/assets/images/icons/sq_icon.png"
+            lazy-load
+            ></image>
+            <text class="desc">{{item.ar[0].name || item.artists[0].name}}</text>
+            <text class="desc" wx:if="{{item.alia.length}}">-</text>
+            <text class="desc" wx:if="{{item.alia.length}}">{{item.alia[0]}}</text>
+            <text class="desc" wx:if="{{item.alias.length}}">-</text>
+            <text class="desc" wx:if="{{item.alias.length}}">{{item.alias[0]}}</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,45 @@
+/* components/video-item-vedio2/index.wxss */
+/* view, image {
+    padding: 0;
+    margin: 0;
+} */
+
+.video-item2 {
+    width: 100%;
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+    border-radius: 30rpx;
+}
+.image-wrapper {
+    flex: 1.5;
+}
+
+.item2-image {
+    width: 100%;
+    border-radius: 20rpx;
+}
+
+.item2-info {
+    font-size: 20rpx;
+    flex: 2;
+    padding: 20rpx;
+}
+
+.item2-info .title {
+    width: 55%;
+    font-weight: bold;
+    font-size: 22rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.item2-info .creator,
+.item2-info .playtime,
+.item2-info .duration {
+    font-size: 20rpx;
+    margin-top: 6rpx;
+}
+

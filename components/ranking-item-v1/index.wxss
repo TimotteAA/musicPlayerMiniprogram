@@ -1,0 +1,49 @@
+/* components/ranking-item-v1/index.wxss */
+.ranking-item-v1 {
+    width: 100%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+    align-items: stretch;
+    border-radius: 20rpx;
+}
+
+.ranking-item-v1 .ranking-item-right {
+    display: relative;
+    width: 30%;
+    height: 100%;
+}
+
+.ranking-item-right .ranking-item-img {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+}
+
+.ranking-item-right .play-count {
+    position: absolute;
+    right: 6rpx;
+    bottom: 6rpx;
+    font-size: 22rpx;
+    color: white;
+}
+
+.ranking-item-v1 .item-left {
+    padding: 20rpx;
+}
+
+.item-left .header {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.item-left .song-item {
+    font-size: 24rpx;
+    margin-bottom: 6rpx;
+}
+
+.item-left .song-item .ar {
+    font-weight: 600;
+}

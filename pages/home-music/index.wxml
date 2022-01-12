@@ -1,0 +1,68 @@
+<!--pages/home-music/index.wxml-->
+
+<!-- 首页搜索框不能交换，点击后跳转到搜索界面 -->
+
+<!-- 1. 搜索框 -->
+<van-search background="#fafafa" 
+    shape="round"
+    placeholder="搜索您喜欢的歌曲"
+    disabled
+    bind:click-input="handleSearchClick"
+/>
+
+<!-- 2. 轮播图 -->
+<swiper class="swiper"
+    indicator-dots
+    autoplay    
+    circular
+    style="height: {{swiperHeight}}px;" 
+    >
+    
+    <block wx:for="{{banners}}" wx:key="bannerId">
+        <swiper-item class="swiper-item"
+            
+            >                                                               
+            <image class="swiper-img" src="{{item.pic}}" 
+               mode="widthFix"
+               bind:load="handleImageLoaded"
+            ></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!-- 3. 推薦歌曲，用的热门榜的数据 -->
+<view class="recommend-song"
+    wx:if="{{recommendSongs.length}}"
+>
+    <header title="推荐歌曲" bind:click="handleMoreClick">
+    </header>
+    <view class="song-list">
+        <block wx:for="{{recommendSongs}}" wx:key="id">
+            <song-list-item1 item="{{item}}"></song-list-item1>
+        </block>
+    </view>
+</view>
+
+
+<!-- 5.熱門歌單 -->
+<song-menu-area
+    wx:if="{{hotSongsList.length}}}"
+ hotSongsList="{{hotSongsList}}" title="热门歌单">
+ </song-menu-area>
+
+<!-- 6. 推荐歌单 -->
+<song-menu-area
+    wx:if="{{recommendSongsList.length}}}"
+ hotSongsList="{{recommendSongsList}}" title="推荐歌单">
+ </song-menu-area>
+
+<!-- 7.榜單 -->
+<view class="ranking" wx:if="{{rankings.originRanking && rankings.fastRanking && rankings.newRanking}}">
+    <header title="巔峰榜" showRight="{{false}}"></header>
+    <block wx:for="{{rankings}}" wx:key="name">
+        <ranking-item-v1 item="{{item}}" 
+            bind:tap="handleRankingClick"
+            data-idx="{{item.name}}"
+        ></ranking-item-v1>
+    </block>
+</view>

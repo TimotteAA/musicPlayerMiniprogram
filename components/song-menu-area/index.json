@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "header": "/components/header/index",
+        "song-menu-item": "/components/song-menu-item/index"
+    }
+}

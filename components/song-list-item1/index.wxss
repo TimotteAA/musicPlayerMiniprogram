@@ -1,0 +1,37 @@
+/* components/song-list-item/index.wxss */
+.song-list-item {
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+}
+
+.item-left-image {
+    width: 25%;
+}
+
+.item-left-image .cover-image {
+    width: 100%;
+    border-radius: 20rpx;
+}
+
+.item-mid {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.item-mid .name {
+    font-weight: bold;
+    font-size: 28rpx;
+}
+
+.item-mid .info {
+    margin-top: 6rpx;
+    font-size: 22rpx;
+    color: #666;
+}
+
+.item-right .icon {
+    width: 50rpx;
+    height: 50rpx;
+}

@@ -1,0 +1,27 @@
+/* pages/home-music/index.wxss */
+page {
+    padding: 0 20rpx;
+}
+
+.van-search {
+    padding: 20rpx 0 !important;
+}
+
+.van-search__content {
+    background-color: #fff !important;
+}
+
+/* 轮播图片与外面的item高度一致 */
+.swiper {
+    border-radius: 20rpx;
+    overflow: hidden;
+    transform: translateY(9);
+}
+
+.swiper-item {
+    display: flex;
+}
+
+.swiper-item .swiper-img {
+    width: 100%;
+}

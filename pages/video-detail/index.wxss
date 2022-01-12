@@ -1,0 +1,74 @@
+/* pages/video-detail/index.wxss */
+
+page {
+   
+    /* overflow: scroll; */
+}
+
+
+.wrapper {
+    margin-top: 650rpx;
+    /* overflow: hidden; */
+    height: 100%;
+}
+
+.video-top {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    height: 650rpx;
+}
+
+.video {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    /* position: static !important; */
+}
+
+
+.video-info {
+    position: absolute;
+    padding: 20rpx;
+    background-color: #fff;
+    bottom: 0;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.video-info .name {
+    font-weight: bold;
+    font-size: 30rpx;
+}
+
+.video-info .author, 
+.video-info .count, 
+.video-info .publish-time {
+    font-size: 24rpx;
+    color: #111;
+}
+
+.video-info .author {
+    margin: 15rpx 0;
+}
+
+.related-header {
+    padding: 20rpx;
+    font-weight: bold;
+    font-size: 32rpx;
+}
+
+.video-bottom {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.item-wrapper {
+    width: 100%;
+}

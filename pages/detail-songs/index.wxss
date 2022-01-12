@@ -1,0 +1,124 @@
+/* pages/detail-songs/index.wxss */
+
+page {
+    padding: 0 20rpx;
+}
+
+.info {
+    width: 100%;
+    /* height: 450rpx; */
+    position: relative;
+    margin-bottom: 60rpx;
+    overflow: hidden;
+}
+
+.info .bg-image {
+    /* position: absolute; */
+    width: 100%;
+}
+
+.info .bg-cover {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left:0;
+    backdrop-filter: blur(10px);
+    /* backdrop-filter: brightness(100%); */
+    backdrop-filter: contrast(50%);
+    z-index: 2;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 40rpx;
+}
+
+.top .cover {
+    width: 300rpx;
+    margin-right: 30rpx;
+}
+
+.top .more {
+    padding-top: 30rpx;
+    color: white;
+    width: 60%;
+}
+
+.author {
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.author .avatar {
+    width: 50rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+}
+
+.author .name {
+    font-size: 20rpx;
+}
+
+.more .title {
+    font-size: 24rpx;
+}
+
+
+.more .desc {
+    margin-top: 20rpx;
+    font-size: 22rpx;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.operator {
+    padding-top: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100rpx;
+    padding-right: 100rpx;
+}
+
+.favor {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.share {
+    display: flex;
+    align-items: center
+}
+
+.icon {
+    width: 40rpx;
+    margin-right: 10rpx;
+}
+
+.favor .icon-name {
+    font-size: 30rpx;
+    color: white;
+}
+
+.share .icon-name {
+    font-size: 30rpx;
+    color: white;
+}
