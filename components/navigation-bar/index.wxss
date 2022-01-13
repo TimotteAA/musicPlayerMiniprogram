@@ -1,0 +1,53 @@
+/* components/navigation-bar/index.wxss */
+
+.nav-bar {
+    color: white;
+    /* background-color:blue; */
+    text-align: center;
+}
+
+/* .status {
+    visibility: hidden;
+} */
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.left, .right {
+    width: 120rpx;
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    justify-self: flex-start;
+}
+
+.center {
+    flex: 1;
+    justify-content: center;
+}
+
+.left-slot:not(:empty) + .left-arrow {
+    display: none;
+}
+
+.left-slot:empty + .left-arrow{ 
+    display: block;
+    text-align: left;
+}
+
+.left .left-arrow .icon {
+    width: 38rpx;
+    display: block;
+}
+
+.center-slot:not(:empty) + .center-title {
+    display: none;
+}
+
+.center-slot:empty + .center-title{ 
+    display: block;
+}

@@ -74,12 +74,14 @@ Page({
             this.setData({searchValue: ""})
             this.setData({searchSuggest: []})
             this.setData({resultSongs: []})
+            // 防抖取消？
             return;
         }
 
         // 得到搜索建议
         getSearchSuggest(searchValue)
         .then(res => {
+            if (!this.data.searchValue.length) return;
             // 獲取搜索關鍵字
             const suggests = res.result.allMatch;
             if (!suggests) return;
@@ -99,7 +101,7 @@ Page({
                     const node1 = {
                         name: "span",
                         attrs: {
-                            style: "color: red;",
+                            style: "color: red; font-size: 11px;",
                         },
                         children: [
                             {
@@ -112,7 +114,7 @@ Page({
                     const node2 = {
                         name: "span",
                         attrs: {
-                            style: "color: black;",
+                            style: "color: black; font-size: 11px;",
                         },
                         children: [
                             {
@@ -125,7 +127,7 @@ Page({
                 } else {
                     const node3 = {
                         name: "span",
-                        attrs: {style: "color: black;"},
+                        attrs: {style: "color: black; font-size: 11px;"},
                         children: [
                             {
                                 type: "text",

@@ -1,1 +1,125 @@
 /* pages/player/index.wxss */
+
+page {
+    color: white;
+    padding: 50rpx;
+}
+
+.bg-image, .bg-cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9999;
+}
+
+.bg-cover {
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(20px);
+}
+
+.title {
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    font-size: 30rpx;
+    justify-content: center;
+}
+
+.title .active {
+    color: white;
+}
+
+.title .inactive {
+    color: gray;
+}
+
+.title .divider {
+    margin: 0 10rpx;
+}
+
+/* 内容 */
+
+.content {
+    box-sizing: border-box;
+}
+
+
+.content .music{
+    display: flex;
+    flex-direction: column;
+}
+
+.album {
+    flex: 5;
+    /* background-color: #f00; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.album .image {
+    width: 100%;
+    /* height: 100%; */
+}
+
+.info {
+    color: #eee;
+    flex: 0.8;
+}
+
+.info .song-title {
+    font-size: 40rpx;
+    font-weight: 600;
+}
+
+.info .singer, .info .album-name {
+    font-size: 22rpx;
+}
+
+.lyric-v1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20rpx 0; */
+}
+
+.progress .progress-bar {
+    margin-left: 15rpx;
+    margin-right: 10rpx;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6rpx;
+    /* margin-bottom: 30rpx; */
+}
+
+.time .current-time, .time .total-time {
+    font-size: 20rpx;
+}
+
+.operator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40rpx;
+}
+
+.btn {
+    width: 50rpx;
+}
+
+.btn.btn-prev, .btn.btn-next {
+    width: 60rpx;
+}
+
+.btn.btn-pause {
+    width: 120rpx;
+}

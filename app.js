@@ -1,19 +1,15 @@
 // app.js
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    const info = wx.getSystemInfoSync();
+    console.log(info);
+    const screenHeight = info.screenHeight;
+    console.log(screenHeight)
+    this.globalData.statusBarHeight = info.statusBarHeight;
+    this.globalData.screenHeight = screenHeight;
   },
   globalData: {
-    userInfo: null
+    statusBarHeight: 0,
+    screenHeight: 0,
   }
 })

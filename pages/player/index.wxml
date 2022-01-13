@@ -1,2 +1,75 @@
 <!--pages/player/index.wxml-->
-<text>pages/player/index.wxml</text>
+<!-- 导航栏 -->
+<navigation-bar title="歌曲" bind:click="handleClick">
+    <view class="title" slot="title">
+            <view class="{{currentPage === 0 ? 'active' : 'inactive'}}">歌曲</view>
+            <view class="divider">|</view>
+            <view class="{{currentPage === 1 ? 'active' : 'inactive'}}">歌词</view>
+    </view>
+</navigation-bar>
+
+<!-- 背景圖片 -->
+<image src="{{currentSong.al.picUrl}}" 
+    class="bg-image"
+    mode="aspectFill"
+></image>
+<!-- 圖片的蓋子 -->
+<view class="bg-cover"></view>
+
+
+<!-- 分页 -->
+<swiper class="content" style="height: {{contentHeight}}px;" 
+    bind:change="handleSwiperChange"
+>
+    <swiper-item class="music"
+    >
+        <view class="album">
+            <image 
+            class='image'
+            src="{{currentSong.al.picUrl}}" mode="aspectFill"></image>
+        </view>
+        <view class="info">
+            <view class="song-title">孤勇者</view>
+            <view class="singer">陈奕迅</view>
+            <view class="album-name">专辑</view>
+        </view>
+        <view class="lyric-v1">
+            <!-- 时间动态获取 -->
+            <view>我是歌词啊啊啊</view>
+        </view>
+        <view class="progress">
+            <slider block-size="12" class="progress-bar"></slider>
+            <view class="time">
+                <view class="current-time">1234</view>
+                <view class="total-time">2222</view>
+            </view>
+        </view>
+        <view class="operator">
+            <image class="btn btn-mode" 
+            src="/assets/images/player/play_order.png"
+            mode="widthFix"
+            >
+            </image>
+            <image class="btn btn-prev" 
+            src="/assets/images/player/play_prev.png"
+            mode="widthFix"
+            >
+            </image>
+            <image class="btn btn-pause" 
+            src="/assets/images/player/play_pause.png"
+            mode="widthFix"
+            >
+            </image>
+            <image class="btn btn-next" 
+            src="/assets/images/player/play_next.png"
+            mode="widthFix"
+            >
+            </image>
+            <image class="btn btn-music" src="/assets/images/player/play_music.png"
+            mode="widthFix"
+            >
+            </image>
+        </view>
+    </swiper-item>
+    <swiper-item class="lyric">2</swiper-item>
+</swiper>
