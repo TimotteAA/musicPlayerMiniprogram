@@ -5,3 +5,7 @@ export function getSongDetail(id) {
         ids: id
     })
 }
+
+export function getSongLyric(id) {
+    return request.get("/lyric", {id})
+}

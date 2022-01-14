@@ -2,7 +2,7 @@
 
 page {
     color: white;
-    padding: 50rpx;
+    padding: 0 40rpx;
 }
 
 .bg-image, .bg-cover {
@@ -59,11 +59,13 @@ page {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: -80rpx;
 }
 
 .album .image {
     width: 100%;
     /* height: 100%; */
+    border-radius: 20rpx;
 }
 
 .info {
@@ -78,6 +80,7 @@ page {
 
 .info .singer, .info .album-name {
     font-size: 22rpx;
+    margin-top: 10rpx;
 }
 
 .lyric-v1 {
@@ -86,11 +89,13 @@ page {
     justify-content: center;
     align-items: center;
     /* padding: 20rpx 0; */
+    color: limegreen;
+    font-size: 28rpx;
 }
 
 .progress .progress-bar {
     margin-left: 15rpx;
-    margin-right: 10rpx;
+    margin-right: 15rpx;
 }
 
 .time {

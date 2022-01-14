@@ -1,4 +1,6 @@
 <!--pages/player/index.wxml-->
+<wxs src="/utils/format.wxs" module="format"></wxs>
+
 <!-- 导航栏 -->
 <navigation-bar title="歌曲" bind:click="handleClick">
     <view class="title" slot="title">
@@ -29,19 +31,24 @@
             src="{{currentSong.al.picUrl}}" mode="aspectFill"></image>
         </view>
         <view class="info">
-            <view class="song-title">孤勇者</view>
-            <view class="singer">陈奕迅</view>
-            <view class="album-name">专辑</view>
+            <view class="song-title">{{currentSong.name}}</view>
+            <view class="singer">{{currentSong.ar[0].name}}</view>
+            <view class="album-name" wx:if="{{currentSong.alia[0].length}}">
+            专辑: {{currentSong.alia[0]}}</view>
         </view>
-        <view class="lyric-v1">
-            <!-- 时间动态获取 -->
-            <view>我是歌词啊啊啊</view>
+        <!-- 机型小于xxx，不显示歌词 -->
+        <view class="lyric-v1" wx:if="{{isShown}}">
+            <view>{{lyrics[currentLyricIdx].text}}</view>
         </view>
         <view class="progress">
-            <slider block-size="12" class="progress-bar"></slider>
+            <slider block-size="12" class="progress-bar"
+                bind:change="handleSliderChange"
+                bind:changing="handleSliderChanging"
+                value="{{sliderValue}}"
+            ></slider>
             <view class="time">
-                <view class="current-time">1234</view>
-                <view class="total-time">2222</view>
+                <view class="current-time">{{format.formatDuration(currentPlayTime)}}</view>
+                <view class="total-time">{{format.formatDuration(duration)}}</view>
             </view>
         </view>
         <view class="operator">

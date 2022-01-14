@@ -47,7 +47,7 @@ Page({
     onReachBottom: async function() {
         // 用已有数量作为偏移offset
         // 后端API有限制: hasMore为false时，就没了
-        
+        // console.log(111);
         if (!this.data.hasMore) return;
         try {
             // wx.startPullDownRefresh(); //相当于用户主动触发下拉刷新
