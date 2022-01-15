@@ -47,3 +47,10 @@
 .item-left .song-item .ar {
     font-weight: 600;
 }
+
+.songs .song-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 320rpx;
+}

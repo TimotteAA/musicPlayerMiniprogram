@@ -10,6 +10,9 @@ Page({
         mvDetail: null,
         mvUrl: "",
         relatedMvs: [],
+        topHeight: 0,
+        headerHeight: 0,
+        wrapperHeight: 0,
     },
 
     /**
@@ -28,7 +31,34 @@ Page({
         } catch (err) {
             console.log(err);
         }
+
+        this.getHeight(".video-top").then(res => {
+            this.setData({topHeight: res})
+        });
+        this.getHeight(".related-header").then(res => {
+            this.setData({headerHeight: res})
+        })
+        this.getHeight(".wrapper").then(res => {
+            this.setData({wrapperHeight: res})
+        })
     },
+
+    getHeight(selector) {
+        return new Promise((resovle, reject) => {
+            let height = 0;
+            const query = wx.createSelectorQuery()
+            // 绑定感兴趣的组件
+            query.select(selector).boundingClientRect()
+            // 相对于视口的滚动位置
+            // query.selectViewport().scrollOffset()
+            query.exec((res) => {
+                const rect = res[0];
+                height = rect.height;
+                resovle(height);
+            })
+        })
+    },
+
     // 点击视频的回调，跳转到視頻详情页
     handleVideoItemClick(event) {
         

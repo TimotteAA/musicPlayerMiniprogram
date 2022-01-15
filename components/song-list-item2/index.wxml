@@ -8,11 +8,13 @@
             src="/assets/images/icons/sq_icon.png"
             lazy-load
             ></image>
-            <text class="desc">{{item.ar[0].name || item.artists[0].name}}</text>
+            <!-- 上为歌曲名 -->
+            <text class="desc desc-name">{{item.ar[0].name || item.artists[0].name}}</text>
+
             <text class="desc" wx:if="{{item.alia.length}}">-</text>
-            <text class="desc" wx:if="{{item.alia.length}}">{{item.alia[0]}}</text>
+            <text class="desc desc-album" wx:if="{{item.alia.length}}">{{item.alia[0]}}</text>
             <text class="desc" wx:if="{{item.alias.length}}">-</text>
-            <text class="desc" wx:if="{{item.alias.length}}">{{item.alias[0]}}</text>
+            <text class="desc desc-album" wx:if="{{item.alias.length}}">{{item.alias[0]}}</text>
         </view>
     </view>
 </view>

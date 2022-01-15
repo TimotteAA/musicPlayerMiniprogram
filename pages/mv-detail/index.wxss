@@ -1,6 +1,6 @@
 /* pages/video-detail/index.wxss */
 page {
-   
+   height: 100vh;
     /* overflow: scroll; */
 }
 
@@ -10,22 +10,22 @@ page {
 }
 
 .wrapper {
-    margin-top: 650rpx;
+    /* margin-top: 650rpx; */
     /* overflow: hidden; */
     height: 100%;
 }
 
 .video-top {
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
-    top: 0;
-    z-index: 999;
+    /* top: 0; */
+    /* z-index: 999; */
     background-color: #fff;
     height: 650rpx;
 }
 
 .video-info {
-    position: absolute;
+    /* position: absolute; */
     padding: 20rpx;
     background-color: #fff;
     bottom: 0;
@@ -58,11 +58,12 @@ page {
     font-size: 32rpx;
 }
 
-.video-bottom {
-    /* display: flex;
+/* .video-bottom {
+    display: flex;
     flex-direction: column;
-    align-items: center; */
-}
+    align-items: center;
+    height: 100%;
+} */
 
 .item-wrapper {
     width: 100%;

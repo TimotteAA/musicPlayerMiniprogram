@@ -3,23 +3,26 @@
 
 <view class="wrapper">
     <view wx:if="{{mvDetail}}" class="video-top">
-    <video src="{{mvUrl}}" class="video"
-        referrer-policy="origin"
-    ></video>
-    
-    <view class="video-info">
-        <view class="name">{{mvDetail.name}}</view>
-        <view class="author">{{mvDetail.artistName}}</view>
-        <view class="info">
-            <view class="count">{{format.formatCount(mvDetail.playCount)}}次播放</view>
-            <view>-</view>
-            <view class="publish-time">{{mvDetail.publishTime}}</view>
+        <video src="{{mvUrl}}" class="video"
+            referrer-policy="origin"
+        ></video>
+        
+        <view class="video-info">
+            <view class="name">{{mvDetail.name}}</view>
+            <view class="author">{{mvDetail.artistName}}</view>
+            <view class="info">
+                <view class="count">{{format.formatCount(mvDetail.playCount)}}次播放</view>
+                <view>-</view>
+                <view class="publish-time">{{mvDetail.publishTime}}</view>
+            </view>
         </view>
     </view>
-</view>
     <!-- <view wx:if="{{relatedMvs.length}}" class="related-video">
      </view> -->
-     <scroll-view class="video-bottom">
+     <scroll-view class="video-bottom"
+        scroll-y
+        style="height: {{wrapperHeight - topHeight - headerHeight}}px;"
+     >
         <view wx:if="{{relatedMvs.length}}" class="related-header">相关视频</view>
         <block wx:for="{{relatedMvs}}" wx:key="vid" >
             <view class="item-wrapper" bind:tap="handleVideoItemClick" data-item="{{item}}">

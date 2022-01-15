@@ -45,6 +45,7 @@ Page({
 
     // 到达底部的生命周期
     onReachBottom: async function() {
+        console.log(111);
         // 用已有数量作为偏移offset
         // 后端API有限制: hasMore为false时，就没了
         // console.log(111);

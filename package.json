@@ -12,6 +12,6 @@
   "dependencies": {
     "@vant/weapp": "^1.10.0",
     "dayjs": "^1.10.7",
-    "hy-event-store": "^1.1.1"
+    "hy-event-store": "^1.2.0"
   }
 }

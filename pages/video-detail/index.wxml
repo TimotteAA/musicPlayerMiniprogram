@@ -18,7 +18,10 @@
 </view>
     <!-- <view wx:if="{{relatedMvs.length}}" class="related-video">
      </view> -->
-     <scroll-view class="video-bottom">
+     <scroll-view class="video-bottom"
+        scroll-y
+        style="height: {{wrapperHeight - topHeight - headerHeight}}px;"
+     >
         <view wx:if="{{relatedMvs.length}}" class="related-header">相关视频</view>
         <block wx:for="{{relatedMvs}}" wx:key="vid" >
             <view class="item-wrapper" bind:tap="handleVideoItemClick" data-item="{{item}}">

@@ -1,2 +1,2 @@
 export rankingStore from "./ranking-store";
-export {audioContext} from "./player-store"
+export {audioContext, playerStore} from "./player-store"

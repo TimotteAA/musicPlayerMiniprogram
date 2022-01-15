@@ -53,8 +53,9 @@
         </view>
         <view class="operator">
             <image class="btn btn-mode" 
-            src="/assets/images/player/play_order.png"
+            src="/assets/images/player/play_{{playModeName}}.png"
             mode="widthFix"
+            bind:tap="handleModeBtnClick"
             >
             </image>
             <image class="btn btn-prev" 
@@ -63,8 +64,9 @@
             >
             </image>
             <image class="btn btn-pause" 
-            src="/assets/images/player/play_pause.png"
+            src="/assets/images/player/play_{{isPlaying ? 'pause' : 'resume'}}.png"
             mode="widthFix"
+            bind:tap="handleIsPlayingClick"
             >
             </image>
             <image class="btn btn-next" 
@@ -78,5 +80,18 @@
             </image>
         </view>
     </swiper-item>
-    <swiper-item class="lyric">2</swiper-item>
+    <swiper-item class="lyrics">
+        <scroll-view class="lyrics-list"
+            scroll-y="{{true}}"
+            scroll-with-animation
+            scroll-top="{{scrollTop}}"
+        >
+            <block wx:for="{{lyrics}}" wx:key="index">
+            <view class="lyric-item {{index === currentLyricIdx ? 'active' : ''}}"
+                style="margin-top: {{index === 0 && contentHeight * 0.5 - 80}}px; margin-bottom: {{index === lyrics.length - 1 && contentHeight * 0.5 + 80}}px;"
+
+            >{{item.text}}</view>
+            </block>
+        </scroll-view>
+    </swiper-item>
 </swiper>

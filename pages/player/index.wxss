@@ -128,3 +128,29 @@ page {
 .btn.btn-pause {
     width: 120rpx;
 }
+
+/* 歌词页面 */
+.lyrics-list {
+    height: 100%;
+}
+
+/* scroll-view去掉滚动条 */
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.lyric-item {
+    height: 35rpx;
+    line-height: 35rpx;
+    text-align: center;
+    padding: 20rpx 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.lyric-item.active {
+    color: limegreen;
+}

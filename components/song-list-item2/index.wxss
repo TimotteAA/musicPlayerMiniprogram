@@ -34,6 +34,7 @@
     font-size: 23rpx;
 }
 
+
 .source {
     display:flex;
     align-items: center;
@@ -42,6 +43,16 @@
 .source .icon {
     width: 30rpx;
     margin-right: 6rpx;
+}
+
+.source .desc-name {
+    width: fit-content;
+}
+
+.source .desc-album {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .source > .desc:not(:last-child) {
