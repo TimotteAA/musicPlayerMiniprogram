@@ -25,3 +25,27 @@ page {
 .swiper-item .swiper-img {
     width: 100%;
 }
+
+.bottom-player-control-btn { 
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 999;
+    font-size: 20rpx;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    padding: 10rpx;
+    border-radius: 50%;
+}
+
+.bottom-player {
+    height: 200rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* background-color: white; */
+}

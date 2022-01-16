@@ -1,0 +1,48 @@
+<!--components/bottom-player/index.wxml-->
+<view class="bottom-player-wrapper">
+        <image 
+        class="bg-image"
+        mode="aspectFill"
+        src="{{currentSong.al.picUrl}}"
+        ></image>
+
+    <view class="bg-cover"></view>
+    <view class="left">
+        <image class="song-cover" mode="widthFix"
+            src="{{currentSong.al.picUrl}}"
+            bind:tap="handleImageClick"
+            data-id="{{currentSong.id}}"
+        ></image>
+        <view class="song-name">
+            {{currentSong.al.name}}
+        </view>  
+    </view>
+    <view class="right-operator">
+        <image class="btn btn-mode" 
+            src="/assets/images/player/play_{{playModeName}}.png"
+            mode="widthFix"
+            bind:tap="handleModeBtnClick"
+            >
+            </image>
+            <image class="btn btn-prev" 
+            src="/assets/images/player/play_prev.png"
+            mode="widthFix"
+            >
+            </image>
+            <image class="btn btn-pause" 
+            src="/assets/images/player/play_{{isPlaying ? 'pause' : 'resume'}}.png"
+            mode="widthFix"
+            bind:tap="handleIsPlayingClick"
+            >
+            </image>
+            <image class="btn btn-next" 
+            src="/assets/images/player/play_next.png"
+            mode="widthFix"
+            >
+            </image>
+            <image class="btn btn-music" src="/assets/images/player/play_music.png"
+            mode="widthFix"
+            >
+            </image>
+    </view>
+</view>

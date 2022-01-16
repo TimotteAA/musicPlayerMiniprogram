@@ -14,13 +14,13 @@ const PLAY_MODES = ["order", "repeat", "random"]
 //     console.log(audioContext.src);
 // })
 
-audioContext.onSeeked(() => {
-    console.log(`onSeeked`, audioContext.currentTime)
-})
+// audioContext.onSeeked(() => {
+//     console.log(`onSeeked`, audioContext.currentTime)
+// })
 
-audioContext.onSeeking(() => {
-    console.log(`onSeeking`, audioContext.currentTime)
-})
+// audioContext.onSeeking(() => {
+//     console.log(`onSeeking`, audioContext.currentTime)
+// })
 
 Page({
 
@@ -32,12 +32,12 @@ Page({
         contentHeight: 0,
         isShown: true,
         // 下为歌曲播放时所需的数据
-        currentSong: {},
+        
         lyrics: [],
         duration: 0,
 
-        id: null,
 
+        id: null,
         isSliderChanging : false,
 
         // 别的页面也有播放器？
@@ -135,7 +135,7 @@ Page({
         })
     },
 
-    // 拖动滑块后，设定新的播放器时间
+    // 拖动滑块结束后，设定新的播放器时间
     handleSliderChange(event) {
         // 1. 获取进度条位置
         const value = event.detail.value;

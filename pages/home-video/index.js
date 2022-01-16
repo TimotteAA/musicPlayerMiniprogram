@@ -1,6 +1,7 @@
 // pages/home-video/index.js
 
 import {getTopMvs} from "../../service/video"
+import {audioContext, playerStore} from "../../store/index"
 
 Page({
 
@@ -73,5 +74,9 @@ Page({
         wx.navigateTo({
           url: `/pages/mv-detail/index?id=${id}`,
         })
-    }
+    },
+    // // 离开该页面，所有数据归零？
+    // onUnload() {
+    //     audioContext.pause();
+    // }
 })

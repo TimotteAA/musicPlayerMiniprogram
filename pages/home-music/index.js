@@ -5,6 +5,8 @@ import {throttle} from "../../utils/throttle"
 import {rankingStore} from "../../store/index"
 import {MAPPING_IDX_TO_RANKING_NAME} from "../../utils/constants"
 
+import {audioContext, playerStore} from "../../store/index"
+
 const getData = function(res) {
     return res;
 }
@@ -22,6 +24,9 @@ Page({
         recommendSongsList: [],
         hotSongsList: [],
         rankings: {},
+        isBottomShow: false,
+        currentSong: {},
+        id: null,
     },
 
     /**
@@ -43,8 +48,11 @@ Page({
         rankingStore.onState("newRanking", this.handleStoreStateChange(0))
         rankingStore.onState("originRanking", this.handleStoreStateChange(2))
         rankingStore.onState("fastRanking", this.handleStoreStateChange(3))
+
+        this.setUpPlayerStore()
     },
     
+
     // 發送網絡請求，获取页面数据
     getPageData() {
         getBanners().then(res => {
@@ -115,5 +123,23 @@ Page({
             let _t = {..._this.data.rankings, ...t};
             _this.setData({rankings: _t})
         } 
+    },
+
+    // 底部播放器显示、隐藏
+    handleBottomClick() {
+        this.setData({isBottomShow: !this.data.isBottomShow})
+    },
+
+    setUpPlayerStore() {
+        playerStore.onStates(['currentSong'], (res) => {
+            // 监听到改变的res是对象
+            const {currentSong} = res;
+            if (currentSong) {
+                // console.log(this.data.currentSong)
+                // console.log(currentSong);
+                this.setData({currentSong: currentSong})
+            }
+
+        })
     }
 })

@@ -66,3 +66,18 @@
         ></ranking-item-v1>
     </block>
 </view>
+
+
+<!-- 底部播放器 -->
+<view class="bottom-player-control-btn"
+    bind:tap="handleBottomClick"
+    wx:if="{{currentSong.id}}"
+>
+底部播放器
+</view>
+
+<view class="bottom-player" wx:if="{{isBottomShow}}">
+    <bottom-player
+        currentSong="{{currentSong}}"
+    ></bottom-player>
+</view>

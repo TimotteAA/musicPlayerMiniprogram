@@ -45,7 +45,6 @@ const playerStore = new HYEventStore(
                 audioContext.autoplay = true;
                 ctx.isPlaying = true;
 
-
                 // 3. 监听歌曲时间的播放
                 this.dispatch("setupAudioContextUpdate")
             },
