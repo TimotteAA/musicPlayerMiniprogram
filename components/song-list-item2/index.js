@@ -31,9 +31,9 @@ Component({
         handleItemNavigate(e) {
             const {id} = e.currentTarget.dataset;
             wx.navigateTo({
-              url: '/pages/player/index?id=' + id,
+                url: `/pages/player/index?id=${id}&type=0`,
             })
-            playerStore.dispatch('playMusicWithSongIdAction', {id});
+            playerStore.dispatch('playMusicWithSongIdAction', {id, type: 0});
         }
     }
 })

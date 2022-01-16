@@ -27,6 +27,7 @@ Page({
         isBottomShow: false,
         currentSong: {},
         id: null,
+        // isPlaying: false,
     },
 
     /**
@@ -127,19 +128,23 @@ Page({
 
     // 底部播放器显示、隐藏
     handleBottomClick() {
-        this.setData({isBottomShow: !this.data.isBottomShow})
+        this.setData({isBottomShow: !this.data.isBottomShow, 
+            isPlaying: this.data.isPlaying})
     },
 
     setUpPlayerStore() {
         playerStore.onStates(['currentSong'], (res) => {
             // 监听到改变的res是对象
-            const {currentSong} = res;
+            const {currentSong, isPlaying} = res;
             if (currentSong) {
                 // console.log(this.data.currentSong)
                 // console.log(currentSong);
                 this.setData({currentSong: currentSong})
             }
 
+            if (isPlaying) {
+                this.setData({isPlaying})
+            }
         })
     }
 })

@@ -10,7 +10,11 @@ Component({
         currentSong: {
             type: Object,
             value: {}
-        }
+        },
+        // isPlaying: {
+        //     type: Boolean,
+        //     value: false,
+        // }
     },
 
     /**
@@ -21,7 +25,7 @@ Component({
         playModeName: "order",
 
         // 
-        isPlaying: true
+        isPlaying: false
     },
 
     /** 
@@ -69,9 +73,9 @@ Component({
             // console.log(e);
             const {id} = e.currentTarget.dataset;
             // 页面跳转
-            console.log(id);
+            // console.log(id);
             wx.navigateTo({
-              url: '/pages/player/index?id=' + id,
+                url: `/pages/player/index?id=${id}&type=1`,
             })
             // 点击歌曲，发起store里的网络请求，从而让播放页面监听数据的变化
             playerStore.dispatch('playMusicWithSongIdAction', {id});

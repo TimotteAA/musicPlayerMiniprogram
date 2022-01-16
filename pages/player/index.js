@@ -51,15 +51,19 @@ Page({
         playModeName: "order",
 
         // 
-        isPlaying: false
+        isPlaying: false,
+
+        // 跳转类型
+        type: 0,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        const {id} = options;
-        this.setData({id});
+        const {id, type} = options;
+        // console.log(type);
+        this.setData({id, type});
 
         // 发送网络请求
         // this.getPageData();
@@ -137,10 +141,11 @@ Page({
 
     // 拖动滑块结束后，设定新的播放器时间
     handleSliderChange(event) {
+        console.log(111);
         // 1. 获取进度条位置
         const value = event.detail.value;
        
-        // console.log(value);
+        console.log(value);
 
         // 2. 设置新的播放器时间
         const time = this.data.duration * value / 100;
@@ -205,12 +210,13 @@ Page({
         // 从store里取，放到页面自己的data里
         playerStore.onStates(['currentPlayTime', 'currentLyricIdx'], (res) => {
             const {currentPlayTime, currentLyricIdx: idx} = res;
-
+            console.log(currentPlayTime)
             if (currentPlayTime && !this.data.isSliderChanging) {
                 // 1、currentTime的变化
                 // currentTime的变化，修改滑块的位置
                 // console.log(currentPlayTime);
                 const currentSliderValue = currentPlayTime / this.data.duration * 100;
+                console.log(currentPlayTime)
                 this.setData({currentPlayTime: currentPlayTime})
                 this.setData({sliderValue: currentSliderValue})
             }

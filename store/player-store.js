@@ -25,8 +25,9 @@ const playerStore = new HYEventStore(
         },
         actions: {
             // 请求歌曲数据，播放
-            playMusicWithSongIdAction(ctx, {id: id}) {
+            playMusicWithSongIdAction(ctx, {id: id, type}) {
                 // 1. 发送网络请求
+                console.log(type)
                 getSongDetail(id).then(res => {
                     ctx.id = id;
                     ctx.currentSong = res.songs[0];
@@ -39,11 +40,22 @@ const playerStore = new HYEventStore(
                 })
 
                 // 2. 播放歌曲，在别的页面也能切换歌曲，dispatch这个方法就行了
-                audioContext.stop();
-                // 实际播放器的实例，先下载、再编解码
-                audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
-                audioContext.autoplay = true;
-                ctx.isPlaying = true;
+                // if (type === 0) {
+                //     // type=0，表示点击音乐跳转而来，此时应该重新播放
+                //     // 而非从底部播放器跳转而来
+                //     audioContext.stop();
+                //     // 实际播放器的实例，先下载、再编解码
+                //     audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
+                //     audioContext.autoplay = true;
+                //     ctx.isPlaying = true;
+                // }
+                                   // type=0，表示点击音乐跳转而来，此时应该重新播放
+                    // 而非从底部播放器跳转而来
+                    audioContext.stop();
+                    // 实际播放器的实例，先下载、再编解码
+                    audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
+                    audioContext.autoplay = true;
+                    ctx.isPlaying = true;
 
                 // 3. 监听歌曲时间的播放
                 this.dispatch("setupAudioContextUpdate")
@@ -51,10 +63,12 @@ const playerStore = new HYEventStore(
 
             setupAudioContextUpdate(ctx) {
                 // // 快进后也能继续播放
+        
                 audioContext.onCanplay(() => {
                     audioContext.play();
                 })
-
+         
+ 
                 // 监听时间更新，求进度条值、歌词
                 audioContext.onTimeUpdate(() => {
                     // 修改当前时间与进度条位置
