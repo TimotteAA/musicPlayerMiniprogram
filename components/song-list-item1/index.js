@@ -31,7 +31,7 @@ Component({
               url: '/pages/player/index?id=' + id,
             })
             // 点击歌曲，发起store里的网络请求，从而让播放页面监听数据的变化
-            playerStore.dispatch('playMusicWithSongIdAction', {id});
+            playerStore.dispatch('playMusicWithSongIdAction', {id, type: 0});
         }
     }
 })

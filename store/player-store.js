@@ -25,8 +25,9 @@ const playerStore = new HYEventStore(
         },
         actions: {
             // 请求歌曲数据，播放
-            playMusicWithSongIdAction(ctx, {id: id}) {
+            playMusicWithSongIdAction(ctx, {id: id, type}) {
                 // 1. 发送网络请求
+                // console.log(type);
                 getSongDetail(id).then(res => {
                     ctx.id = id;
                     ctx.currentSong = res.songs[0];
@@ -38,12 +39,14 @@ const playerStore = new HYEventStore(
                     ctx.lyrics = lyrics;
                 })
 
-                // 2. 播放歌曲，在别的页面也能切换歌曲，dispatch这个方法就行了
-                audioContext.stop();
-                // 实际播放器的实例，先下载、再编解码
-                audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
-                audioContext.autoplay = true;
-                ctx.isPlaying = true;
+                if (type === 0) {
+                    // 2. 播放歌曲，在别的页面也能切换歌曲，dispatch这个方法就行了
+                    audioContext.stop();
+                    // 实际播放器的实例，先下载、再编解码
+                    audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
+                    audioContext.autoplay = true;
+                    ctx.isPlaying = true;
+                }
 
                 // 3. 监听歌曲时间的播放
                 this.dispatch("setupAudioContextUpdate")

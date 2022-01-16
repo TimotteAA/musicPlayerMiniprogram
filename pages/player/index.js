@@ -148,10 +148,10 @@ Page({
         audioContext.pause(); 
         // audioContext.seek(time / 1000);
         audioContext.seek(time / 1000);
-        audioContext.play();
-        // audioContext.onSeeked(() => {
-        //     audioContext.play();
-        // })
+        // audioContext.play();
+        audioContext.onSeeked(() => {
+            audioContext.play();
+        })
         this.setData({sliderValue: value, isSliderChanging: false})
     },
 
