@@ -2,7 +2,11 @@
 
 import rankingStore from "../../store/ranking-store"
 import {getSongsDetail} from "../../service/music"
-import {getImageHeight} from "../../utils/query-rect"
+// import {getImageHeight} from "../../utils/query-rect"
+import {    
+    audioContext,
+    playerStore
+} from "../../store/player-store"
 
 Page({
 
@@ -63,5 +67,12 @@ Page({
             console.log(rect.height);
             this.setData({imageHeight: rect.height})
         })
+    },
+
+    handleItemClick(e) {
+        const {index} = e.currentTarget.dataset;
+        console.log(index);
+        playerStore.setState("songsList", this.data.tracks);
+        playerStore.setState("playingSongIdx", index)
     }
 })

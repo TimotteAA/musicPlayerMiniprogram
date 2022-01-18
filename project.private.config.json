@@ -53,6 +53,12 @@
                     "pathName": "pages/player/index",
                     "query": "id=1901371647",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/more-albums/index",
+                    "query": "type=1",
+                    "scene": null
                 }
             ]
         }

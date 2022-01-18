@@ -1,0 +1,105 @@
+<!--pages/more-albums/index.wxml-->
+<view class="more-album-wrapper">
+    <view wx:if="{{chineseSongs.length}}" class="more-subwrapper">
+        <header title="华语" showRight="{{false}}"></header>
+        <view class="top-wrapper">
+                <block wx:for="{{chineseSongs}}" wx:key="id"
+
+            >
+                    <view class="item-wrapper"
+                    data-item="{{item}}"
+                        bind:tap="handleMenuItemClick"
+                    >
+                        <song-menu-item item="{{item}}"></song-menu-item>
+                    </view>
+
+            </block>
+        </view>
+    </view>
+
+    <view wx:if="{{chineseSongs.length}}" class="more-subwrapper">
+        <header title="流行" showRight="{{false}}"></header>
+        <view class="top-wrapper">
+                <block wx:for="{{popularSongs}}" wx:key="id"
+            >
+                    <view class="item-wrapper"
+                    data-item="{{item}}"
+                        bind:tap="handleMenuItemClick"
+                    >
+                        <song-menu-item item="{{item}}"></song-menu-item>
+                    </view>
+
+            </block>
+        </view>
+    </view>
+
+    <view wx:if="{{chineseSongs.length}}" class="more-subwrapper">
+        <header title="摇滚" showRight="{{false}}"></header>
+        <view class="top-wrapper">
+                <block wx:for="{{rockSongs}}" wx:key="id"
+            >
+                    <view class="item-wrapper"
+                    data-item="{{item}}"
+                        bind:tap="handleMenuItemClick"
+                    >
+                        <song-menu-item item="{{item}}"></song-menu-item>
+                    </view>
+
+            </block>
+        </view>
+    </view>
+
+    <view wx:if="{{chineseSongs.length}}" class="more-subwrapper">
+        <header title="轻音乐" showRight="{{false}}"></header>
+        <view class="top-wrapper">
+                <block wx:for="{{lightSongs}}" wx:key="id"
+            >
+                    <view class="item-wrapper"
+                    data-item="{{item}}"
+                        bind:tap="handleMenuItemClick"
+                    >
+                        <song-menu-item item="{{item}}"></song-menu-item>
+                    </view>
+
+            </block>
+        </view>
+    </view>
+
+    <view wx:if="{{chineseSongs.length}}" class="more-subwrapper">
+        <header title="电子" showRight="{{false}}"></header>
+        <view class="top-wrapper">
+                <block wx:for="{{electronicSongs}}" wx:key="id"
+            
+            >
+                    <view class="item-wrapper" b
+                        data-item="{{item}}"
+                        bind:tap="handleMenuItemClick"
+                    >
+                        <song-menu-item item="{{item}}"
+                       
+                        ></song-menu-item>
+                    </view>
+
+            </block>
+        </view>
+    </view>
+
+    <view wx:if="{{japneseSongs.length}}" class="more-subwrapper">
+        <header title="日语歌单" showRight="{{false}}"></header>
+        <view class="top-wrapper">
+                <block wx:for="{{japneseSongs}}" wx:key="id"
+            
+            >
+                    <view class="item-wrapper" b
+                        data-item="{{item}}"
+                        bind:tap="handleMenuItemClick"
+                    >
+                        <song-menu-item item="{{item}}"
+                       
+                        ></song-menu-item>
+                    </view>
+
+            </block>
+        </view>
+    </view>
+</view>

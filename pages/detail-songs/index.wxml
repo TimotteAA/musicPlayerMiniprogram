@@ -58,6 +58,8 @@
 
 <view class="song-list">
     <block wx:for="{{tracks}}" wx:key="id">
-        <song-list-item-v2 item="{{item}}" index="{{index + 1}}"></song-list-item-v2>
+        <song-list-item-v2 item="{{item}}" index="{{index + 1}}"
+            bind:tap="handleItemClick" data-index="{{index}}"
+        ></song-list-item-v2>
     </block>
 </view>

@@ -66,5 +66,5 @@ Page({
         wx.navigateTo({
           url: `/pages/video-detail/index?id=${id}`,
         })
-    }
+    },
 })

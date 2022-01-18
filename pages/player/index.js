@@ -72,48 +72,6 @@ Page({
         const deviceRatio = getApp().globalData.deviceRatio;
         this.setData({contentHeight })
         this.setData({isShown: deviceRatio >= 2})
-
-
-        // 页面内部的歌曲播放，注意这个歌曲是局部变量
-        // 音乐应该是全局的？
-        // 下面是创建了一个播放器
-        // const audioContext = wx.createInnerAudioContext();
-
-        // 使用全局的audioContext，停止之前的播放;
-
-        // // 首页也可以播放，改变播放、播放别的歌
-        // audioContext.stop();
-        // // 实际播放器的实例，先下载、再编解码
-        // audioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
-        // audioContext.autoplay = true;
-        
-        // // 快进后也能继续播放
-        // audioContext.onCanplay(() => {
-        //     audioContext.play();
-        // })
-
-        // // 监听时间更新，求进度条值、歌词
-        // audioContext.onTimeUpdate(() => {
-        //     // 修改当前时间与进度条位置
-        //     const currentTime = audioContext.currentTime
-        //     const currentSliderValue = currentTime *1000 / this.data.duration * 100;
-        //     // 拿到的是秒，总时间是毫秒数
-            
-        //     if (!this.data.isSliderChanging) {
-        //         // 用户没有拖拉
-        //         this.setData({currentPlayTime: currentTime * 1000})
-        //         this.setData({sliderValue: currentSliderValue})
-        //     }
-        //     // currentTime的单位是秒
-        //     const idx = getCurrentLyric(currentTime *1000, this.data.lyrics)
-        //     // console.log(currentLyricIdx)
-        //     // 防止重复打印，只有新的值与已有歌词不一样，才设置
-        //     if (idx !== this.data.currentLyricIdx) {
-        //         this.setData({currentLyricIdx: idx})
-        //         // console.log(idx);
-        //         this.setData({scrollTop: idx - 1 >= 0 ? (idx - 1) * 41 : 0})
-        //     } 
-        // })
     },
 
     /**
@@ -181,7 +139,7 @@ Page({
         // 改变页面的isPlaying
         // playerStore.setState("isPlaying", !this.data.isPlaying)
 
-        playerStore.dispatch("changeAudioContextState");
+        playerStore.dispatch("changeAudioContextState", !this.data.isPlaying);
     },
 
     // 监听store的变化
@@ -234,5 +192,14 @@ Page({
         playerStore.onState("isPlaying", res => {
             this.setData({isPlaying: res})
         })
+    },
+
+    // 若是单曲循环，则下一首还是当前这首
+    handlePrevBtnClick() {
+        playerStore.dispatch("changePrevPlayingSong")
+    },
+
+    handleNextBtnClick() {
+        playerStore.dispatch("changeNextPlayingSong");
     }
 })

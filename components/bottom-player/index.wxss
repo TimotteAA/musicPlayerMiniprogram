@@ -38,18 +38,33 @@
     justify-content: center;
 }
 
-.left .song-cover {
-    width: 50%;
-    border-radius: 6rpx;
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.left .song-name {
+.left .song-cover {
+    width: 50%;
+    border-radius: 50%;   
+}
+
+.song-animation {
+    animation: rotate 15s linear infinite;
+}
+
+/* .left .song-name {
     margin-top: 10rpx;
     text-align: center;
     overflow: hidden;
     color: white;
     font-size: 20rpx;
-}
+    white-space: nowrap;
+    text-overflow: ellipsis;
+} */
 
 .right-operator {
     display: flex;

@@ -122,3 +122,7 @@ page {
     font-size: 30rpx;
     color: white;
 }
+
+.song-list {
+    margin-bottom: 40rpx;
+}

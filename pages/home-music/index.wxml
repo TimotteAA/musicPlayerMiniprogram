@@ -38,7 +38,9 @@
     </header>
     <view class="song-list">
         <block wx:for="{{recommendSongs}}" wx:key="id">
-            <song-list-item1 item="{{item}}"></song-list-item1>
+            <song-list-item1 item="{{item}}"
+            bind:tap="handleItemClick" data-index="{{index}}"
+            ></song-list-item1>
         </block>
     </view>
 </view>
@@ -53,7 +55,7 @@
 <!-- 6. 推荐歌单 -->
 <song-menu-area
     wx:if="{{recommendSongsList.length}}}"
- hotSongsList="{{recommendSongsList}}" title="推荐歌单">
+ hotSongsList="{{recommendSongsList}}" title="肥宅推荐日系歌单">
  </song-menu-area>
 
 <!-- 7.榜單 -->

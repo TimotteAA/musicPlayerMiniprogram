@@ -11,6 +11,7 @@ const getData = function(res) {
     return res;
 }
 
+// 对图片的加载完成回调进行节流，因为图片的高度是一样的
 const getImageComponentHeight = throttle(getImageHeight, 1500, getData)
 
 Page({
@@ -141,5 +142,13 @@ Page({
             }
 
         })
+    },
+
+    handleItemClick(e) {
+        const {index} = e.currentTarget.dataset;
+        // console.log(index);
+        // 播放列表歌曲
+        playerStore.setState("songsList", this.data.recommendSongs);
+        playerStore.setState("playingSongIdx", index)
     }
 })

@@ -61,6 +61,7 @@
             <image class="btn btn-prev" 
             src="/assets/images/player/play_prev.png"
             mode="widthFix"
+            bind:tap="handlePrevBtnClick"
             >
             </image>
             <image class="btn btn-pause" 
@@ -72,6 +73,7 @@
             <image class="btn btn-next" 
             src="/assets/images/player/play_next.png"
             mode="widthFix"
+            bind:tap="handleNextBtnClick"
             >
             </image>
             <image class="btn btn-music" src="/assets/images/player/play_music.png"

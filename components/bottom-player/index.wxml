@@ -1,43 +1,41 @@
 <!--components/bottom-player/index.wxml-->
 <view class="bottom-player-wrapper">
-        <image 
+        <!-- <image 
         class="bg-image"
         mode="aspectFill"
         src="{{currentSong.al.picUrl}}"
-        ></image>
+        ></image> -->
 
     <view class="bg-cover"></view>
     <view class="left">
-        <image class="song-cover" mode="widthFix"
+        <image class="song-cover song-animation" mode="widthFix"
             src="{{currentSong.al.picUrl}}"
             bind:tap="handleImageClick"
             data-id="{{currentSong.id}}"
+            style="animation-play-state: {{isPlaying ? 'running' :'paused'}}"
         ></image>
-        <view class="song-name">
+        <!-- <view class="song-name">
             {{currentSong.al.name}}
-        </view>  
+        </view>   -->
     </view>
     <view class="right-operator">
-        <image class="btn btn-mode" 
-            src="/assets/images/player/play_{{playModeName}}.png"
-            mode="widthFix"
-            bind:tap="handleModeBtnClick"
-            >
-            </image>
             <image class="btn btn-prev" 
             src="/assets/images/player/play_prev.png"
             mode="widthFix"
+            bind:tap="handlePrevBtnClick"
             >
             </image>
-            <image class="btn btn-pause" 
+            <image class="btn btn-pause song-animation" 
             src="/assets/images/player/play_{{isPlaying ? 'pause' : 'resume'}}.png"
             mode="widthFix"
             bind:tap="handleIsPlayingClick"
+            style="animation-play-state: {{isPlaying ? 'running' :'paused'}}"
             >
             </image>
             <image class="btn btn-next" 
             src="/assets/images/player/play_next.png"
             mode="widthFix"
+            bind:tap="handleNextBtnClick"
             >
             </image>
             <image class="btn btn-music" src="/assets/images/player/play_music.png"

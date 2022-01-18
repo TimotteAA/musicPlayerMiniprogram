@@ -30,6 +30,20 @@ Component({
             wx.navigateTo({
               url: `/pages/detail-songs/index?id=${item.id}&type=menu`,
             })
+        },
+
+        handleMoreClick(e) {
+            const {title} = e.currentTarget.dataset;
+            let type;
+            // 从热门歌单跳转，还是从推荐歌单跳转
+            if (title === "热门歌单") {
+                type = 0;
+            } else {
+                type = 1;
+            }
+            wx.navigateTo({
+              url: `/pages/more-albums/index?type=${type}`,
+            })
         }
     }
 })

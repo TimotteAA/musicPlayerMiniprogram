@@ -6,7 +6,8 @@
         "pages/detail-search/index",
         "pages/video-detail/index",
         "pages/detail-songs/index",
-        "pages/player/index"
+        "pages/player/index",
+        "pages/more-albums/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
