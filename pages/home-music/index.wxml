@@ -39,13 +39,13 @@
     <view class="song-list">
         <block wx:for="{{recommendSongs}}" wx:key="id">
             <song-list-item1 item="{{item}}"
-            bind:tap="handleItemClick" data-index="{{index}}"
+            
             ></song-list-item1>
         </block>
     </view>
 </view>
 
-
+<!-- bind:tap="handleItemClick" data-index="{{index}}" -->
 <!-- 5.熱門歌單 -->
 <song-menu-area
     wx:if="{{hotSongsList.length}}}"

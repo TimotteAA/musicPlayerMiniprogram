@@ -38,13 +38,13 @@
                     ></image>
                     <text class="icon-name">{{format.formatCount(songsInfo.trackCount)}}</text>
                 </view>
-                <view class="share">
+                <view class="share" bind:tap="handleLike" wx:if="{{isLogin}}">
                     <image class="icon"
                     src="/assets/images/icons/share_icon.png"
                     lazy-load
                     mode="widthFix"
                     ></image>
-                    <text class="icon-name">分享</text>
+                    <text class="icon-name">收藏</text>
                 </view>
             </view>
         </view>
@@ -57,9 +57,11 @@
 
 
 <view class="song-list">
-    <block wx:for="{{tracks}}" wx:key="id">
+    <block wx:for="{{tracks}}" wx:key="id"
+    >
         <song-list-item-v2 item="{{item}}" index="{{index + 1}}"
-            bind:tap="handleItemClick" data-index="{{index}}"
+        bind:tap="handleItemClick" data-index="{{index}}"
         ></song-list-item-v2>
     </block>
 </view>
+

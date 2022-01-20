@@ -17,3 +17,13 @@ export function getSongsList(cat="日语", limit=6, offset=0) {
 export function getSongsDetail(id) {
     return request.get(`/playlist/detail/dynamic?id=${id}`)
 }
+
+// 歌曲是否能听
+export function isAvailable(id) {
+    return request.get(`/check/music?id=${id}`)
+}
+
+// 收藏歌单
+export function likeAlubm(t, id) {
+    return request.get(`/playlist/subscribe?t=${t}&id=${id}`)
+}

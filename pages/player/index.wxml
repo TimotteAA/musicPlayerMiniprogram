@@ -76,10 +76,10 @@
             bind:tap="handleNextBtnClick"
             >
             </image>
-            <image class="btn btn-music" src="/assets/images/player/play_music.png"
+            <!-- <image class="btn btn-music" src="/assets/images/player/play_music.png"
             mode="widthFix"
             >
-            </image>
+            </image> -->
         </view>
     </swiper-item>
     <swiper-item class="lyrics">

@@ -86,3 +86,11 @@
 .right-operator .btn.btn-pause {
     width: 40rpx;
 }
+
+.current-songs {
+    position: absolute;
+    bottom: 200rpx;
+    height: 80rpx;
+    background-color: rgba(0,255,0,0.2);
+    backdrop-filter: blur(20px);
+}

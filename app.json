@@ -7,7 +7,8 @@
         "pages/video-detail/index",
         "pages/detail-songs/index",
         "pages/player/index",
-        "pages/more-albums/index"
+        "pages/more-albums/index",
+        "pages/personal-profile/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -17,6 +18,7 @@
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json",
+    "requiredBackgroundModes": ["audio"],
     "tabBar": {
         "list": [
             {
@@ -30,6 +32,12 @@
                 "text": "mv",
                 "iconPath": "./assets/images/tabbar/video_normal.png",
                 "selectedIconPath": "./assets/images/tabbar/video_active.png"
+            },
+            {
+                "pagePath": "pages/personal-profile/index",
+                "text": "我的",
+                "iconPath": "./assets/images/tabbar/profile_normal.png",
+                "selectedIconPath": "./assets/images/tabbar/profile_active.png"
             }
         ]
     }

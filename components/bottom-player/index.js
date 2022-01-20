@@ -1,7 +1,6 @@
 // components/bottom-player/index.js
 import {audioContext, playerStore} from "../../store/index"
 
-const PLAY_MODES = ["order", "repeat", "random"]
 Component({
     /**
      * 组件的属性列表
@@ -10,7 +9,15 @@ Component({
         currentSong: {
             type: Object,
             value: {}
-        }
+        },
+        // playingSongIdx: {
+        //     type: Number,
+        //     value: 0,
+        // },
+        // songsList: {
+        //     type: Array,
+        //     value: []
+        // }
     },
 
     /**
@@ -21,7 +28,11 @@ Component({
         playModeName: "order",
 
         // 
-        isPlaying: true
+        isPlaying: true,
+
+        // 
+        songsList: [],
+        showCurrentSongs: false,
     },
 
     /** 
@@ -30,6 +41,7 @@ Component({
     lifetimes: {
         created() {
             this.setUpPlayerStore();
+            console.log(this.properties)
         }
     },
 
@@ -41,6 +53,16 @@ Component({
             // 监听暂停、播放的改变
             playerStore.onState("isPlaying", res => {
                 this.setData({isPlaying: res})
+            })
+
+            playerStore.onState("songsList", res => {
+                // console.log(res);
+                this.setData({songsList: res})
+            })
+
+            playerStore.onState("playingSongIdx", res => {
+                // console.log(res);
+                this.setData({playingSongIdx: res})
             })
         },
     
@@ -63,6 +85,10 @@ Component({
 
         handleNextBtnClick() {
             playerStore.dispatch("changeNextPlayingSong");
+        },
+        
+        handleCurrentSongsListClick() {
+            this.setData({showCurrentSongs: !this.data.showCurrentSongs})
         }
     }
 })

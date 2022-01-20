@@ -59,6 +59,12 @@
                     "pathName": "pages/more-albums/index",
                     "query": "type=1",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/personal-profile/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

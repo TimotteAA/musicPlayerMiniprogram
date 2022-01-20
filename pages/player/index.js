@@ -103,14 +103,15 @@ Page({
         // 2. 设置新的播放器时间
         const time = this.data.duration * value / 100;
         // 先暂停播放
-        audioContext.pause(); 
+        // audioContext.pause(); 
         // audioContext.seek(time / 1000);
         audioContext.seek(time / 1000);
         // audioContext.play();
         audioContext.onSeeked(() => {
             audioContext.play();
         })
-        this.setData({sliderValue: value, isSliderChanging: false})
+        this.setData({sliderValue: value, isSliderChanging: false,
+            })
     },
 
     handleSliderChanging(event) {

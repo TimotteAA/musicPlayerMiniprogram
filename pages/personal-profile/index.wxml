@@ -1,0 +1,36 @@
+<!--pages/personal-profile/index.wxml-->
+<view class="profile-wrapper">
+    <view wx:if="{{!isLogin}}">
+            <view class="header">欢迎回来！请登录</view>
+        <form bindsubmit="handleSubmit">
+            <label for="phone" class="input">请输入手机：
+                <input type="text" value="{{phone}}" id="phone" class="input"
+                bindinput="handlePhoneChange"
+                ></input>
+            </label>
+            <label for="password" class="input">请输入密码：
+                <input type="password" value="{{password}}" id="password" class="input"
+                bindinput="handlePasswordChange"
+                ></input>
+            </label>
+            <button type="warn" form-type="submit"
+                class="btn"
+            >登录</button>
+        </form>
+    </view>
+
+    <view class="profile-wrapper" wx:if="{{userInfo.userId}}">
+        <view class="profile-header">
+            <image src="{{userInfo.avatarUrl}}" class="profile-cover" mode="widthFix"></image>
+            <view class="username">{{userInfo.nickname}}</view>
+        </view>
+
+        <view class="songs-history">
+            <header title="历史播放" bind:click="handleHistoryClick"></header>
+        </view>
+
+        <view class="favor-albums">
+            <header title="收藏歌单" bind:click="handleAlbumClick"></header>
+        </view>
+    </view>
+</view>

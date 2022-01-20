@@ -28,6 +28,9 @@ Page({
         isBottomShow: false,
         currentSong: {},
         id: null,
+
+        songsList: [],
+        playingSongIdx: 0,
     },
 
     /**
@@ -142,13 +145,18 @@ Page({
             }
 
         })
+
+        playerStore.onState("songsList", res => {
+            this.setData({songsList: res})
+        })
     },
 
-    handleItemClick(e) {
-        const {index} = e.currentTarget.dataset;
-        // console.log(index);
-        // 播放列表歌曲
-        playerStore.setState("songsList", this.data.recommendSongs);
-        playerStore.setState("playingSongIdx", index)
-    }
+    // handleItemClick(e) {
+    //     const {index} = e.currentTarget.dataset;
+    //     // console.log(index);
+    //     // 播放列表歌曲
+    //     // 点一首歌，就放入一首歌
+    //     playerStore.setState("songsList", this.data.recommendSongs);
+    //     playerStore.setState("playingSongIdx", index)
+    // }
 })

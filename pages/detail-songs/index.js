@@ -1,11 +1,11 @@
 // pages/detail-songs/index.js
 
 import rankingStore from "../../store/ranking-store"
-import {getSongsDetail} from "../../service/music"
+import {getSongsDetail,  likeAlubm} from "../../service/music"
 // import {getImageHeight} from "../../utils/query-rect"
 import {    
     audioContext,
-    playerStore
+    playerStore,
 } from "../../store/player-store"
 
 Page({
@@ -19,6 +19,8 @@ Page({
         songsInfo: {},
         tracks: [],
         imageHeight: 0,
+        // 是否收藏
+        order: false
     },
 
     /**
@@ -38,7 +40,13 @@ Page({
                 // 网易云接口限制，不登录仅返回10条数据
                this.setData({songsInfo: res.playlist})
                this.setData({tracks: res.playlist.tracks})
+               this.setData({order: res.playlist.ordered})
             })
+        }
+
+        const userInfo = JSON.parse(wx.getStorageSync('userInfo'));
+        if (userInfo.userId) {
+            this.setData({isLogin: true, userInfo})
         }
     },
 
@@ -71,8 +79,18 @@ Page({
 
     handleItemClick(e) {
         const {index} = e.currentTarget.dataset;
-        console.log(index);
-        playerStore.setState("songsList", this.data.tracks);
-        playerStore.setState("playingSongIdx", index)
+        // console.log(index);
+        // playerStore.setState("songsList", this.data.tracks);
+        // playerStore.setState("playingSongIdx", index)
+        for (let song of this.data.tracks) {
+            console.log(song.name)
+            playerStore.dispatch("addSongIntoSongsListAction", song.id)
+        } 
+    },
+    // 收藏歌单
+    handleLike() {
+        likeAlubm(0, this.data.songsInfo.id).then(res => {
+            console.log(res);
+        })
     }
 })

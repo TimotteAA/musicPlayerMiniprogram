@@ -1,0 +1,33 @@
+/* pages/personal-profile/index.wxss */
+page {
+    padding: 20rpx;
+    background-color: #fff;
+}
+
+.header {
+    font-size: 40rpx;
+    font-weight: 600;
+}
+
+.input {
+    background-color: red;
+}
+
+.btn {
+    position: relative;
+    top: 40rpx;
+}
+
+.profile-header {
+    padding: 20rpx;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-header .profile-cover {
+    width: 240rpx;
+    border-radius: 50%;
+    border: 10px solid white;
+}
