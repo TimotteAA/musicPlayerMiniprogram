@@ -8,7 +8,8 @@
         "pages/detail-songs/index",
         "pages/player/index",
         "pages/more-albums/index",
-        "pages/personal-profile/index"
+        "pages/personal-profile/index",
+        "pages/personsal-display/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -18,7 +19,9 @@
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json",
-    "requiredBackgroundModes": ["audio"],
+    "requiredBackgroundModes": [
+        "audio"
+    ],
     "tabBar": {
         "list": [
             {

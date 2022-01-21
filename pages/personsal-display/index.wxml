@@ -1,0 +1,12 @@
+<!--pages/personsal-display/index.wxml-->
+<view>
+    <header title="{{title}}" showRight="{{false}}"></header>
+    <view wx:if="{historySongs.length}}">
+        <block wx:for="historySongs" wx:key="id">
+            <song-list-item2
+                item="{{item}}" index="{{index + 1}}"
+            ></song-list-item2>
+        </block>
+    </view>
+</view>
+

@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "header": "/components/header/index"
+    "header": "/components/header/index",
+    "song-list-item1": "/components/song-list-item1/index",
+    "song-list-item2": "/components/song-list-item2/index",
+    "song-menu-item": "/components/song-menu-item/index",
+    "song-menu-area": "/components/song-menu-area/index"
   }
 }

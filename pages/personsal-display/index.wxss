@@ -1,0 +1,4 @@
+/* pages/personsal-display/index.wxss */
+page {
+    padding: 20rpx;
+}

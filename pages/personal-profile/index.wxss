@@ -9,8 +9,19 @@ page {
     font-weight: 600;
 }
 
-.input {
-    background-color: red;
+.input-1 {
+    /* background-color: red; */
+    /* color: white; */
+    padding: 40rpx;
+    margin-bottom: 80rpx;
+}
+
+input:first-child {
+    padding:80rpx;
+    background-color: #fa1;
+    border-radius:40rpx;
+    display: block;
+    margin-bottom: 80rpx;
 }
 
 .btn {
@@ -30,4 +41,36 @@ page {
     width: 240rpx;
     border-radius: 50%;
     border: 10px solid white;
+}
+
+.profile-header .username {
+    color: white;
+    margin-top: 40rpx;
+}
+
+.profile-header .log-out {
+    color: white;
+    margin-top: 40rpx;
+    border: 4rpx solid white;
+    padding: 10rpx;
+    border-radius: 20rpx;
+}
+
+.history-scoll {
+    height: 600rpx;
+    white-space: nowrap;
+}
+
+.history-albums {
+    height: 600rpx;
+    display: flex;
+}
+
+.items-wrapper {
+    display: flex;
+}
+
+.item-wrappper {
+    width: 40%;
+    display: inline-block;
 }

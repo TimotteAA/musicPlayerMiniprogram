@@ -11,6 +11,10 @@ Component({
         title: {
             type: String,
             value: "熱門歌單"
+        },
+        showRight: {
+            type: Boolean,
+            value: true,
         }
     },
 

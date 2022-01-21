@@ -3,12 +3,12 @@
     <view wx:if="{{!isLogin}}">
             <view class="header">欢迎回来！请登录</view>
         <form bindsubmit="handleSubmit">
-            <label for="phone" class="input">请输入手机：
+            <label for="phone" class="input-1">请输入手机：
                 <input type="text" value="{{phone}}" id="phone" class="input"
                 bindinput="handlePhoneChange"
                 ></input>
             </label>
-            <label for="password" class="input">请输入密码：
+            <label for="password" class="input-2">请输入密码：
                 <input type="password" value="{{password}}" id="password" class="input"
                 bindinput="handlePasswordChange"
                 ></input>
@@ -19,18 +19,41 @@
         </form>
     </view>
 
-    <view class="profile-wrapper" wx:if="{{userInfo.userId}}">
+    <view class="profile-wrapper" wx:if="{{isLogin}}">
         <view class="profile-header">
             <image src="{{userInfo.avatarUrl}}" class="profile-cover" mode="widthFix"></image>
             <view class="username">{{userInfo.nickname}}</view>
+            <view class="log-out" bind:tap="handleLogOut">退出登录</view>
         </view>
 
-        <view class="songs-history">
-            <header title="历史播放" bind:click="handleHistoryClick"></header>
+        <view class="history-wrapper">
+            <view class="songs-history">
+            <header title="历史播放" bind:click="handleHistoryClick" data-title="0" showRight="{{false}}"></header>
+            <scroll-view scroll-y class="history-scoll">
+                <block wx:for="{{historySongs}}" wx:key="id">
+                    <song-list-item1 item="{{item.song}}"></song-list-item1>
+                </block>
+            </scroll-view>
+            
+        </view>
+        
         </view>
 
-        <view class="favor-albums">
-            <header title="收藏歌单" bind:click="handleAlbumClick"></header>
-        </view>
+        <!-- <view class="favor-albums">
+            <header title="收藏歌单" bind:click="handleAlbumClick" data-title="1" showRight="{{false}}"></header>
+            <view class="items-wrapper">
+                <scroll-view scroll-x class="history-albums">
+                    <block wx:for="{{likeAlbums}}" wx:key="id">
+                        <view class="item-wrappper"  data-item="{{item}}"
+                        bind:tap="handleMenuItemClick">
+                            <song-menu-item item="{{item}}"></song-menu-item>
+                        </view>
+                    </block>
+                </scroll-view>
+            </view>
+        </view> -->
+        <song-menu-area hotSongsList="{{likeAlbums}}" showRight="{{false}}" 
+            title="收藏歌单"
+        ></song-menu-area>
     </view>
 </view>

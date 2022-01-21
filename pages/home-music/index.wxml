@@ -81,5 +81,6 @@
 <view class="bottom-player" wx:if="{{isBottomShow}}">
     <bottom-player
         currentSong="{{currentSong}}"
+        songsList="{{songsList}}"
     ></bottom-player>
 </view>

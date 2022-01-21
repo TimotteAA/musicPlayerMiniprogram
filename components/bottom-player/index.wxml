@@ -38,19 +38,18 @@
             bind:tap="handleNextBtnClick"
             >
             </image>
-            <image class="btn btn-music" src="/assets/images/player/play_music.png"
+            <!-- <image class="btn btn-music" src="/assets/images/player/play_music.png"
             mode="widthFix"
             bind:tap="handleCurrentSongsListClick"
             >
-            </image>
+            </image> -->
     </view>
 
-    <sroll-view wx:if="{{showCurrentSongs}}" class="current-songs"
+    <!-- <sroll-view wx:if="{{showCurrentSongs}}" class=" current-songs"
     scroll-y
     >
-    111
-        <view wx:for="{{6}}" wx:key="id">
-            <view>{{item}}</view>
-        </view>
-    </sroll-view>
+        <block wx:for="{{songsList}}" wx:key="id">
+            <view>{{item.name}}</view>
+        </block>
+    </sroll-view> -->
 </view>

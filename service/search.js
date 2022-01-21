@@ -5,10 +5,13 @@ export function getSearchHot() {
 }
 
 export function getSearchSuggest(keywords) {
-    return request.get(`/search/suggest?type=mobile&keywords=${keywords}`)
+    return request.get(`/search/suggest`, {
+        type: "mobile",
+        keywords: keywords
+    })
 }
 
 export function getSearchResult(value) {
     // console.log(value);
-    return request.get(`/search?keywords=${value}`)
+    return request.get(`/search`, {keywords: value})
 }

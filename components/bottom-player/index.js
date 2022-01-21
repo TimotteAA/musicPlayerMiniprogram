@@ -17,7 +17,8 @@ Component({
         // songsList: {
         //     type: Array,
         //     value: []
-        // }
+        // },
+
     },
 
     /**
@@ -41,7 +42,6 @@ Component({
     lifetimes: {
         created() {
             this.setUpPlayerStore();
-            console.log(this.properties)
         }
     },
 
@@ -56,7 +56,7 @@ Component({
             })
 
             playerStore.onState("songsList", res => {
-                // console.log(res);
+                console.log(res);
                 this.setData({songsList: res})
             })
 

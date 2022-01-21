@@ -150,12 +150,13 @@ const playerStore = new HYEventStore(
  
             changeAudioContextState(ctx, isPlaying) {
                 ctx.isPlaying = isPlaying;
-                if (ctx.isPlaying && ctx.isStoping) {
+                if (ctx.isPlaying || ctx.isStoping) {
                     // 播放，
                     audioContext.src = `https://music.163.com/song/media/outer/url?id=${ctx.id}.mp3`;
                     // 背景音乐的title，先设置成id，请求到歌曲信息，再设置成歌曲名
                     audioContext.title = ctx.currentSong.name;
                     audioContext.startTime = ctx.currentTime / 1000;
+                    audioContext.play();
                     ctx.isStoping = false;
                 } else {
                     // 暂停
